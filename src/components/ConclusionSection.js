@@ -1,7 +1,7 @@
 import React from 'react';
 import './ConclusionSection.css';
 
-const ConclusionSection = () => {
+const ConclusionSection = ({ score = 0, onRestart }) => {
     const tools = [
         {
             title: "Planification des repas",
@@ -43,6 +43,10 @@ const ConclusionSection = () => {
                 <p className="section-subtitle">
                     Découvrez nos outils et conseils pour réduire le gaspillage alimentaire au quotidien
                 </p>
+
+                <div className="score-final" style={{textAlign: 'center', margin: '30px 0'}}>
+                    <h3>Votre score final : {score} points</h3>
+                </div>
 
                 <div className="stats-container">
                     <h3>Le gaspillage alimentaire en chiffres</h3>
@@ -87,7 +91,7 @@ const ConclusionSection = () => {
                     </p>
                     <button
                         className="btn btn-primary"
-                        onClick={() => document.getElementById('game-section').scrollIntoView({ behavior: 'smooth' })}
+                        onClick={onRestart}
                     >
                         Rejouer au jeu de tri
                     </button>
