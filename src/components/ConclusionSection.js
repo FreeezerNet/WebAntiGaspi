@@ -30,10 +30,26 @@ const ConclusionSection = ({ score = 0, onRestart }) => {
     ];
 
     const statistics = [
-        { number: "1/3", label: "de la nourriture produite est gaspillée" },
-        { number: "10M", label: "tonnes de déchets alimentaires par an en France" },
-        { number: "159€", label: "perdus par personne et par an" },
-        { number: "8%", label: "des émissions de gaz à effet de serre mondiales" }
+        { number: "1/3", label: "de la nourriture produite est gaspillée", sources: [
+            { url: "https://www.fao.org/food-loss-and-food-waste/en/", label: "FAO" },
+            { url: "https://www.ademe.fr/expertises/dechets/elements-contexte/gaspillage-alimentaire", label: "Ademe" },
+            { url: "https://www.unep.org/fr/ressources/rapport/indice-du-gaspillage-alimentaire-2021", label: "ONU Environnement" }
+        ] },
+        { number: "10M", label: "tonnes de déchets alimentaires par an en France", sources: [
+            { url: "https://www.ecologie.gouv.fr/gaspillage-alimentaire", label: "Ministère de la Transition écologique" },
+            { url: "https://librairie.ademe.fr/cadic/2647/chiffres-cles-du-gaspillage-alimentaire.pdf", label: "Ademe (PDF)" },
+            { url: "https://www.fao.org/france/news/detail-fr/fr/c/1113172/", label: "FAO France" }
+        ] },
+        { number: "159€", label: "perdus par personne et par an", sources: [
+            { url: "https://librairie.ademe.fr/cadic/2647/chiffres-cles-du-gaspillage-alimentaire.pdf", label: "Ademe (PDF)" },
+            { url: "https://agriculture.gouv.fr/gaspillage-alimentaire", label: "Ministère de l'Agriculture" },
+            { url: "https://www.fne.asso.fr/dossiers/gaspillage-alimentaire", label: "France Nature Environnement" }
+        ] },
+        { number: "8%", label: "des émissions de gaz à effet de serre mondiales", sources: [
+            { url: "https://www.fao.org/food-loss-and-food-waste/en/", label: "FAO" },
+            { url: "https://www.unep.org/resources/report/unep-food-waste-index-report-2021", label: "ONU Environnement" },
+            { url: "https://drawdown.org/solutions/reduced-food-waste", label: "Project Drawdown" }
+        ] }
     ];
 
     return (
@@ -55,13 +71,20 @@ const ConclusionSection = ({ score = 0, onRestart }) => {
                             <div key={index} className="stat-card">
                                 <div className="stat-number">{stat.number}</div>
                                 <div className="stat-label">{stat.label}</div>
+                                <div style={{marginTop: 16, fontSize: '0.85em', color: '#bfc9d1', fontStyle: 'italic', textAlign: 'left', lineHeight: 1.5}}>
+                                    {stat.sources && stat.sources.map((src, i) => (
+                                        <div key={i}>
+                                            <a href={src.url} target="_blank" rel="noopener noreferrer" style={{color: '#bfc9d1', textDecoration: 'none', fontStyle: 'italic'}}>{src.label}</a>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 <div className="tools-container">
-                    <h3>Nos outils pour agir</h3>
+                    <h3>Les méthodes pour agir</h3>
                     <div className="tools-grid">
                         {tools.map((tool, index) => (
                             <div key={index} className="tool-card">
