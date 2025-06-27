@@ -11,7 +11,7 @@ const GameSection = () => {
     const [gameOver, setGameOver] = useState(false);
     const [showConclusion, setShowConclusion] = useState(false);
     const [itemsProcessed, setItemsProcessed] = useState(0);
-    const MAX_ITEMS = 20;
+    const MAX_ITEMS = 10;
 
     const foodItems = [
         { aliment: "Banane", etat: "Très mûre, noire, peau tachetée, molle", destination: "Composte", icon: "🍌" },
@@ -39,7 +39,6 @@ const GameSection = () => {
         { aliment: "Fromage blanc", etat: "Ouvert depuis 3 jours, odeur fraîche", destination: "À consommer", icon: "🥛" },
         { aliment: "Œufs de caille", etat: "Boîte non ouverte, fraîche", destination: "À consommer", icon: "🥚" },
         { aliment: "Pommes de terre", etat: "Germées mais fermes", destination: "À consommer", icon: "🥔" },
-        { aliment: "Poivron rouge", etat: "Peau ridée, pas de moisissure", destination: "À consommer", icon: "🫑" },
         { aliment: "Jus d'orange frais", etat: "Ouvert depuis 2 jours, goût acidulé", destination: "À consommer", icon: "🧃" },
         { aliment: "Filet de saumon", etat: "Très frais, emballage intact", destination: "À consommer", icon: "🐟" },
         { aliment: "Chocolat noir", etat: "Un peu blanc, comestible", destination: "À consommer", icon: "🍫" },
@@ -115,7 +114,7 @@ const GameSection = () => {
             <div className="container">
                 <h2 className="section-title">Jeu de Tri Alimentaire</h2>
                 <p className="section-subtitle">
-                    Triez les aliments dans la bonne zone ! Triez 20 objets pour terminer la partie.
+                    Triez les aliments dans la bonne zone ! Triez 10 objets pour terminer la partie.
                 </p>
                 {!gameStarted && !gameOver && !showConclusion && (
                     <div className="game-start">
@@ -141,7 +140,7 @@ const GameSection = () => {
                         {currentItem && (
                             <>
                                 <div style={{textAlign: 'center', fontWeight: 600, marginBottom: 6, fontSize: '1.1rem'}}>
-                                    {itemsProcessed + 1} / 20
+                                    {itemsProcessed + 1} / 10
                                 </div>
                                 <div className="current-item">
                                     <div className="item-display">
