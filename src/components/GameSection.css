@@ -116,45 +116,76 @@
     display: inline-block;
 }
 
+/* Poubelles - Desktop par défaut */
 .trash-bins {
     display: flex;
     justify-content: center;
     gap: 48px;
     margin: 18px 0;
 }
-
 .trash-bin {
     background: white;
     box-shadow: 0 5px 15px rgba(0,0,0,0.15);
     border-radius: 18px;
-    padding: 6px 0;
+    padding: 12px 0;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: box-shadow 0.2s, transform 0.2s;
     border: 2px solid #e0e0e0;
-    max-width: 80px;
+    max-width: 400px;
+    width: 300px;
 }
-
 .trash-bin:hover {
     box-shadow: 0 10px 30px rgba(76,175,80,0.25);
     transform: translateY(-6px) scale(1.04);
     border-color: #4CAF50;
 }
-
 .trash-image {
-    width: 48px;
-    height: 65px;
+    width: 80px;
+    height: 110px;
     object-fit: contain;
     margin-bottom: 8px;
 }
-
 .trash-label {
     font-size: 1.1rem;
     color: #2c3e50;
     text-shadow: none;
     margin-top: 5px;
+}
+
+/* Tablette */
+@media (max-width: 900px) {
+  .trash-bins {
+    gap: 24px;
+  }
+  .trash-bin {
+    max-width: 150px;
+    padding: 8px 0;
+  }
+  .trash-image {
+    width: 60px;
+    height: 80px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .trash-bins {
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+  }
+  .trash-bin {
+    width: 300px;
+    max-width: 300px;
+    padding: 0;
+  }
+  .trash-image {
+    width: 38px;
+    height: 50px;
+  }
 }
 
 .game-instructions {
@@ -241,22 +272,5 @@
 
     .instructions-grid {
         grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-    .trash-bins {
-        flex-direction: column;
-        gap: 4px;
-        align-items: center;
-    }
-    .trash-bin {
-        width: 60vw;
-        max-width: 60vw;
-        padding: 0;
-    }
-    .trash-image {
-        width: 24px;
-        height: 32px;
     }
 }

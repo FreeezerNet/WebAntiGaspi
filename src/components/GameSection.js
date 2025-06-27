@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './GameSection.css';
-import CompostImg from '../image/compost.png';
+import CompostImg from '../image/composte.png';
 import fridgeImg from '../image/Stilledible.png';
 import trashImg from '../image/trashes.png';
 
@@ -42,7 +42,7 @@ const GameSection = () => {
         { aliment: "Poivron rouge", etat: "Peau ridée, pas de moisissure", destination: "À consommer", icon: "🫑" },
         { aliment: "Jus d'orange frais", etat: "Ouvert depuis 2 jours, goût acidulé", destination: "À consommer", icon: "🧃" },
         { aliment: "Filet de saumon", etat: "Très frais, emballage intact", destination: "À consommer", icon: "🐟" },
-        { aliment: "Chocolat noir", etat: "Un peu blanc (fat bloom), comestible", destination: "À consommer", icon: "🍫" },
+        { aliment: "Chocolat noir", etat: "Un peu blanc, comestible", destination: "À consommer", icon: "🍫" },
         { aliment: "Yaourt aux fruits", etat: "Date limite dépassée de 2 jours", destination: "Poubelle", icon: "🥛" },
         { aliment: "Salade de fruits", etat: "Préparée la veille, bien conservée", destination: "À consommer", icon: "🍇" },
         { aliment: "Steak haché", etat: "Date de péremption aujourd'hui", destination: "À consommer", icon: "🥩" },
@@ -94,7 +94,7 @@ const GameSection = () => {
 
     const getTrashImage = (type) => {
         switch (type) {
-            case 'Composte': return CompostImg;
+            case 'composte': return CompostImg;
             case 'trash': return trashImg;
             case 'fridge': return fridgeImg;
             default: return '';
@@ -103,7 +103,7 @@ const GameSection = () => {
 
     const getTrashLabel = (type) => {
         switch (type) {
-            case 'Composte': return 'Composte';
+            case 'composte': return 'Composte';
             case 'trash': return 'Poubelle';
             case 'fridge': return 'Frigo';
             default: return 'Autre';
@@ -154,13 +154,13 @@ const GameSection = () => {
                             </>
                         )}
                         <div className="trash-bins">
-                            {['Composte', 'fridge', 'trash'].map((type) => (
+                            {['composte', 'fridge', 'trash'].map((type) => (
                                 <div
                                     key={type}
                                     className="trash-bin"
                                     onClick={() => handleSort(type)}
                                 >
-                                    <img src={getTrashImage(type)} alt={type} className="trash-image" style={{width: '80px', height: '200px', objectFit: 'contain', marginBottom: '10px'}} />
+                                    <img src={getTrashImage(type)} alt={type} className="trash-image" />
                                     <div className="trash-label">{getTrashLabel(type)}</div>
                                 </div>
                             ))}
