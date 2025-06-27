@@ -59,7 +59,7 @@ const GameSection = () => {
     const getTypeFromDestination = (destination) => {
         if (destination === 'Composte') return 'Composte';
         if (destination === 'Poubelle') return 'trash';
-        return 'fridge'; // "À consommer" => frigo
+        return 'fridge'; 
     };
 
     const getRandomItem = () => {
@@ -115,7 +115,7 @@ const GameSection = () => {
             <div className="container">
                 <h2 className="section-title">Jeu de Tri Alimentaire</h2>
                 <p className="section-subtitle">
-                    Triez les aliments dans la bonne poubelle ! Triez 20 objets pour terminer la partie.
+                    Triez les aliments dans la bonne zone ! Triez 20 objets pour terminer la partie.
                 </p>
                 {!gameStarted && !gameOver && !showConclusion && (
                     <div className="game-start">
@@ -135,15 +135,23 @@ const GameSection = () => {
                 )}
                 {gameStarted && !gameOver && !showConclusion && (
                     <div className="game-container">
+                        <div style={{textAlign: 'center', fontWeight: 700, fontSize: '1.2rem', marginBottom: 8, color: '#388e3c'}}>
+                            Score : {score} points
+                        </div>
                         {currentItem && (
-                            <div className="current-item">
-                                <div className="item-display">
-                                    <span className="item-icon" style={{fontSize: '2.5rem'}}>{currentItem.icon}</span>
-                                    <div className="item-name">{currentItem.aliment}</div>
+                            <>
+                                <div style={{textAlign: 'center', fontWeight: 600, marginBottom: 6, fontSize: '1.1rem'}}>
+                                    {itemsProcessed + 1} / 20
                                 </div>
-                                <div className="item-etat">{currentItem.etat}</div>
-                                <p className="item-instruction">Où jeter cet objet ?</p>
-                            </div>
+                                <div className="current-item">
+                                    <div className="item-display">
+                                        <span className="item-icon" style={{fontSize: '2.5rem'}}>{currentItem.icon}</span>
+                                        <div className="item-name">{currentItem.aliment}</div>
+                                    </div>
+                                    <div className="item-etat">{currentItem.etat}</div>
+                                    <p className="item-instruction">Où jeter cet objet ?</p>
+                                </div>
+                            </>
                         )}
                         <div className="trash-bins">
                             {['Composte', 'fridge', 'trash'].map((type) => (
@@ -163,19 +171,19 @@ const GameSection = () => {
                     <h3>Instructions :</h3>
                     <div className="instructions-grid">
                         <div className="instruction">
-                            <img src={CompostImg} alt="Composte" className="instruction-icon" style={{width: '40px', height: '40px'}} />
+                            <img src={CompostImg} alt="Composte" className="instruction-icon" style={{width: '40px', height: '55px'}} />
                             <div>
                                 <strong>Composte :</strong> Épluchures, fruits pourris, marc de café, pain rassis
                             </div>
                         </div>
                         <div className="instruction">
-                            <img src={fridgeImg} alt="Frigo" className="instruction-icon" style={{width: '40px', height: '40px'}} />
+                            <img src={fridgeImg} alt="Frigo" className="instruction-icon" style={{width: '40px', height: '55px'}} />
                             <div>
                                 <strong>Frigo :</strong> Aliments encore consommables et frais
                             </div>
                         </div>
                         <div className="instruction">
-                            <img src={trashImg} alt="Poubelle" className="instruction-icon" style={{width: '40px', height: '40px'}} />
+                            <img src={trashImg} alt="Poubelle" className="instruction-icon" style={{width: '40px', height: '55px'}} />
                             <div>
                                 <strong>Poubelle :</strong> Aliments avariés, viande périmée, produits laitiers périmés
                             </div>

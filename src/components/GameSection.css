@@ -105,9 +105,15 @@
 }
 
 .item-etat {
-    font-size: 0.95rem;
-    color: #7f8c8d;
-    margin-bottom: 5px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #d35400;
+    background: #fff3e0;
+    padding: 8px 14px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    margin-top: 6px;
+    display: inline-block;
 }
 
 .trash-bins {

@@ -83,20 +83,6 @@ const ConclusionSection = ({ score = 0, onRestart }) => {
                     </div>
                 </div>
 
-                <div className="call-to-action">
-                    <h3>Prêt à agir ?</h3>
-                    <p>
-                        Chaque petit geste compte ! Commencez par appliquer ces conseils au quotidien
-                        et partagez vos bonnes pratiques avec votre entourage.
-                    </p>
-                    <button
-                        className="btn btn-primary"
-                        onClick={onRestart}
-                    >
-                        Rejouer au jeu de tri
-                    </button>
-                </div>
-
                 <div className="footer-note">
                     <p>
                         <strong>Rappel :</strong> Le meilleur déchet est celui qu'on ne produit pas.
